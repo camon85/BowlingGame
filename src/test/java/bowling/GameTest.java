@@ -21,21 +21,21 @@ public class GameTest {
         game.roll(0);
     }
 
+    private void rollMany(int pins, int frames) {
+        for (int i = 0; i < frames; i++) {
+            game.roll(pins);
+        }
+    }
+
     @Test
     public void gutterGame() throws Exception {
-        for (int i = 0; i < 20; i++) {
-            game.roll(0);
-        }
-
+        rollMany(0, 20);
         assertThat(game.getScore(), is(0));
     }
 
     @Test
     public void allOnes() throws Exception {
-        for (int i = 0; i < 20; i++) {
-            game.roll(1);
-        }
-
+        rollMany(1, 20);
         assertThat(game.getScore(), is(20));
     }
 }
