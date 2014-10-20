@@ -32,6 +32,10 @@ public class GameTest {
         game.roll(5);
     }
 
+    private void rollStrike() {
+        game.roll(10);
+    }
+
     @Test
     public void gutterGame() throws Exception {
         rollMany(0, 20);
@@ -67,10 +71,6 @@ public class GameTest {
         game.roll(10);
         game.roll(10);
         assertThat(game.getScore(), is(300));
-    }
-
-    private void rollStrike() {
-        game.roll(10);
     }
 
 
