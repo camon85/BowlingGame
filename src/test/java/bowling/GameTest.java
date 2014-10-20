@@ -2,6 +2,7 @@ package test.java.bowling;
 
 import main.java.bowling.Game;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -38,4 +39,15 @@ public class GameTest {
         rollMany(1, 20);
         assertThat(game.getScore(), is(20));
     }
+
+//    @Ignore
+    @Test
+    public void oneSpare() throws Exception {
+        game.roll(5);
+        game.roll(5); // spare
+        game.roll(3);
+        rollMany(17, 0);
+        assertThat(game.getScore(), is(16));
+    }
+
 }
